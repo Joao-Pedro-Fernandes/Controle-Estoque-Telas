@@ -9,7 +9,7 @@ def connect_db():
         if error.errno == errorcode.ER_BAD_DB_ERROR:
             print("Banco de dados não existe!")
         elif error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-            print("Usuário e ou senha está incorreto!")
+            print("Usuário e ou senha está incorreto, ou o Banco de dados está offline!")
         else: 
             print(error)
     return db_connection
