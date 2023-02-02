@@ -1,9 +1,10 @@
 def connect_db():
+    from os import system
     import mysql.connector
     from mysql.connector import errorcode
 
     try:
-        db_connection = mysql.connector.connect(host='localhost',user='root',password='',database='estoque')
+        db_connection = mysql.connector.connect(host='localhost',user='root',password='Jp28072002',database='estoque')
         print("Conexão com banco de dados foi feita!")
     except mysql.connector.Error as error:
         if error.errno == errorcode.ER_BAD_DB_ERROR:
@@ -12,5 +13,7 @@ def connect_db():
             print("Usuário e ou senha está incorreto, ou o Banco de dados está offline!")
         else: 
             print(error)
+    system("pause >nul")
+    system("cls")
     return db_connection
 
