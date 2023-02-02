@@ -2,7 +2,8 @@ from connection import *
 from os import system
 
 def pause():
-    system("pause >nul")
+    print("\n\n")
+    system("pause")
     system("cls")
 
 def limpar():
@@ -16,8 +17,8 @@ def pesquisar():
     values = input("DIGITE O MODELO A PROCURAR A PEÇA: ")
     comando = sql + "'" + values + "'"
     cursor.execute(comando)
-    for (id,marca,modelo,cor,quantidade,grau_importancia) in cursor:
-        result = result + "\n" + "MARCA: " + marca + "\n" + "MODELO: " + modelo + "\n" + "COR: " + cor + "\n" + "QUANTIDADE: " + str(quantidade) + "\n\n"
+    for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+        result = result + "\n" + "MARCA: " + marca + "\n" + "MODELO: " + modelo + "\n" + "COR: " + cor + "\n" + "GRAU DE IMPORTÂNCIA: " + grau_importancia + "\n" + "QUANTIDADE: " + str(quantidade) + "\n\n"
     cursor.close()
     connection.commit()
     connection.close()
@@ -38,18 +39,37 @@ def pecas_faltosas():
         try:
             op = int(input("\nSUA OPÇÃO: "))
             if (op==0):
-                pass
+                break
             elif (op==1):
-                op="A"
+                sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A'"
+                cursor.execute(sql)
+                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                    lista = "Frontal" + " " + marca + " " + modelo + " " + cor
+                    print(lista)
             elif (op==2):
-                op="M"
+                sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M'"
+                cursor.execute(sql)
+                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                    lista = "Frontal" + " " + marca + " " + modelo + " " + cor
+                    print(lista)
             elif (op==3):
                 op="MB"
+                sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M' or numero_de_pecas='0' and grau_de_importancia='MB'"
+                cursor.execute(sql)
+                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                    lista = "Frontal" + " " + marca + " " + modelo + " " + cor
+                    print(lista)                   
             elif (op==4):
                 op="B"
+                sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M' or numero_de_pecas='0' and grau_de_importancia='MB' or numero_de_pecas='0' and grau_de_importancia='B'"
+                cursor.execute(sql)
+                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                    lista = "Frontal" + " " + marca + " " + modelo + " " + cor
+                    print(lista)
             else:
                 print("\nOPÇÃO INVÁLIDA.")
                 pause()
+            pause()
         except ValueError:
             print("\nDIGITE UM NÚMERO VÁLIDO!")
             pause()
