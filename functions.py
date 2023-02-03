@@ -1,4 +1,5 @@
 from connection import *
+from objects import *
 from os import system
 
 def pause():
@@ -75,5 +76,13 @@ def pecas_faltosas():
             pause()
             op = -1
     
+def mostrar_estoque():
+    connection = connect_db()
+    cursor = connection.cursor()
+    sql = "SELECT * FROM telas"
+    cursor.execute(sql)
+    estoque = Pecas.buscar_pecas(cursor)
+    print(estoque)
+
 
 
