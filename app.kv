@@ -1,0 +1,30 @@
+#:import hex kivy.utils.get_color_from_hex
+
+
+<AppWindow>:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                
+
+        Label:
+            text:'Controle de Estoque Loja SD'
+
+        Button:
+            text: 'Pesquisar Modelos'
+            color: 0 , 0 , 0 , 1
+
+        Button:
+            text: 'Mostrar Peças Faltosas'
+            color: 0 , 0 , 0 , 1
+
+        Button:
+            text: 'Mostrar Estoque'
+            color: 0 , 0 , 0 , 1
+                          
