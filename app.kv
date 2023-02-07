@@ -2,29 +2,44 @@
 
 
 <AppWindow>:
+    
+    canvas.before:
+        Color:
+            rgba: hex('#FFD700')
+        Rectangle:
+            size:self.size
+            pos:self.pos
     orientation: 'vertical'
+    
     BoxLayout:
         orientation: 'vertical'
-        canvas.before:
-            Color:
-                rgba: hex('#FFD700')
-            Rectangle:
-                size:self.size
-                pos:self.pos
+        Label:
+            size_hint_y: 0.5
+            text: "Controle de Estoque Loja SD"
+            color: 0 , 0 , 0 , 1
+    
+        BoxLayout:
+            orientation:'vertical'
+            
+            Button:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                text: "Pesquisar Modelos"
+                size_hint_x: 0.45
+                size_hint_y: 0.07
+        
+            Button:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                text: "Peças Faltosas"
+                size_hint_x: 0.45
+                size_hint_y: 0.07
+
+            Button:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                size_hint_x: 0.45
+                text: "Mostrar Estoque"
+                size_hint_y: 0.07
+        
                 
 
-        Label:
-            text:'Controle de Estoque Loja SD'
-
-        Button:
-            text: 'Pesquisar Modelos'
-            color: 0 , 0 , 0 , 1
-
-        Button:
-            text: 'Mostrar Peças Faltosas'
-            color: 0 , 0 , 0 , 1
-
-        Button:
-            text: 'Mostrar Estoque'
-            color: 0 , 0 , 0 , 1
+        
                           
