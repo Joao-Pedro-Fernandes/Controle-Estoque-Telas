@@ -1,45 +1,69 @@
 #:import hex kivy.utils.get_color_from_hex
 
+<Btn@Button>:
+    background_normal:
+    background_color: hex('#000000')
 
+
+<Screens>:
+    AppWindow:
+        name: 'home'
+    PesquisarWindow:
+        name: 'pesquisar_window'
 <AppWindow>:
-    
     canvas.before:
         Color:
             rgba: hex('#FFD700')
         Rectangle:
             size:self.size
-            pos:self.pos
-    orientation: 'vertical'
+            pos:self.pos    
     
     BoxLayout:
         orientation: 'vertical'
         Label:
-            size_hint_y: 0.5
+            size_hint_y: 0.3
             text: "Controle de Estoque Loja SD"
+            font_size: 50
             color: 0 , 0 , 0 , 1
-    
+                
         BoxLayout:
             orientation:'vertical'
             
-            Button:
+            Btn:
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
                 text: "Pesquisar Modelos"
+                font_size: 20
                 size_hint_x: 0.45
                 size_hint_y: 0.07
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'pesquisar_window'
         
-            Button:
+            Btn:
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
                 text: "Peças Faltosas"
+                font_size: 20
                 size_hint_x: 0.45
                 size_hint_y: 0.07
+                
 
-            Button:
+            Btn:
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
                 size_hint_x: 0.45
                 text: "Mostrar Estoque"
-                size_hint_y: 0.07
-        
-                
+                font_size: 20
+                size_hint_y: 0.07   
+        Label:
+            size_hint_y: 0.165
 
+<PesquisarWindow>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
         
-                          
+        
+                            

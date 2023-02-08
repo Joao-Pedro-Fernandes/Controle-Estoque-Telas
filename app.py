@@ -2,16 +2,23 @@ from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
+from functions import *
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 Builder.load_file('app.kv')
 
-class AppWindow(BoxLayout):
-    def __init__(self):
-        super().__init__()
+class AppWindow(Screen):
+    pass
 
-class AppPrincipal(App):
+class PesquisarWindow(Screen):
+    pass
+
+class Screens(ScreenManager):
+    pass
+
+class Screens3(App):
     def build(self):
-        return AppWindow()
+        return Screens()
 
 if __name__=='__main__':
-    AppPrincipal().run()
+    Screens3().run()
