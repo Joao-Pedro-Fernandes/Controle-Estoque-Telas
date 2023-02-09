@@ -4,6 +4,34 @@
     background_normal:
     background_color: hex('#000000')
 
+<LabelTable@Label>:
+    font_size: 20
+    size_hint_y: 0.001
+    background_color: 1, 1, 1, 1
+    background_normal: ""
+    canvas.before:
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            width: 0.9
+            rectangle: self.x, self.y, self.width, self.height
+
+<LabelRow@Label>:
+    font_size: 25
+    size_hint_y: '0.08dp'
+    canvas.before:
+        Color:
+            rgba: hex('#FFFFFF')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            width: 0.9
+            rectangle: self.x, self.y, self.width, self.height
+
+
 <Screens>:
     AppWindow:
         name: 'home'
@@ -24,7 +52,7 @@
             text: "Controle de Estoque Loja SD"
             font_size: 50
             color: 0 , 0 , 0 , 1
-                
+                   
         BoxLayout:
             orientation:'vertical'
             
@@ -51,9 +79,14 @@
                 size_hint_x: 0.45
                 text: "Mostrar Estoque"
                 font_size: 20
-                size_hint_y: 0.07   
-        Label:
+                size_hint_y: 0.07 
+
+        Image:
+            pos_hint: {'center_x': 0.92,'center_y': 0.0}
+            source: 'images/LogoSD.png'
             size_hint_y: 0.165
+        Label:
+            size_hint_y:0.01
 
 <PesquisarWindow>:
     BoxLayout:
@@ -84,22 +117,286 @@
                 size_hint_x: 0.01
         BoxLayout:
     GridLayout:
-        rows: 10
+        pos_hint: {'center_x': 0.5,'center_y': 0.4}
+        rows: 15
         cols: 7
-        Label:
+        LabelTable:
             text: 'Id'
-        Label:
+            font_size: 25
+            size_hint: 1, 0.1
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos               
+        LabelTable:
             text: 'Marca'
-        Label:
+            font_size: 25
+            size_hint: 2, 0.07
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos 
+        LabelTable:
             text: 'Modelo'
-        Label:
+            font_size: 25
+            size_hint: 3, 0.07
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos 
+        LabelTable:
             text: 'Cor'
-        Label:
-            text: 'Quantidade'
-        Label:
-            text: 'Grau de Importância'
-        Label:
+            font_size: 25
+            size_hint: 2, 0.07
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos 
+        LabelTable:
+            text: 'Qtd'
+            font_size: 25
+            size_hint: 1, 0.07
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos 
+        LabelTable:
+            text: 'G. Imp.'
+            font_size: 25
+            size_hint: 3, 0.07
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos 
+        LabelTable:
             text: 'Caixa'
+            size_hint: 3, 0.07
+            font_size: 25
+            canvas.before:
+                Color:
+                    rgba: hex('#000000')
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        
+        #Linha - 1
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa        
+        #Linha - 1
+        
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        #Linha - 2
+        LabelRow:
+            id: label_id
+        LabelRow:
+            id: label_marca
+        LabelRow:
+            id: label_modelo
+        LabelRow:
+            id: label_cor
+        LabelRow:
+            id: label_qtd
+        LabelRow:
+            id: label_importancia
+        LabelRow:
+            id: label_caixa
+        #Linha - 2
+
+        
+
         BoxLayout:
         
                             
