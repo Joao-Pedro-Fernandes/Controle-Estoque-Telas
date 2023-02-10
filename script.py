@@ -15,6 +15,7 @@ for n in range(numero_de_linhas):
     cor = tabela.loc[n,"Cor"]
     grau_importancia = tabela.loc[n,"Grau de Importancia"]
     grau_importancia.strip()
+    caixa=tabela.loc[n,"Caixa"]
     if (grau_importancia=="Exceção"):
         grau_importancia="E"
     elif (grau_importancia=="Baixo"):
@@ -26,5 +27,5 @@ for n in range(numero_de_linhas):
     elif (grau_importancia=="Alto"):
         grau_importancia="A"
     quantidade = int(tabela.loc[n,"Numero"])
-    print('("{}" , "{}" , "{}" , {} , "{}"),'.format(marca,modelo,cor,quantidade,grau_importancia))
+    print('(DEFAULT, "{}" , "{}" , "{}" , {} , "{}", "{}"),'.format(marca,modelo,cor,quantidade,grau_importancia,caixa))
     
