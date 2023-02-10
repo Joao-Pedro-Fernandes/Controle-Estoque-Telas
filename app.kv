@@ -4,6 +4,14 @@
     background_normal:
     background_color: hex('#000000')
 
+<BtnVoltar@Button>:
+    text:'Menu'
+    size_hint_y: '0.02dp'
+    size_hint_x: 0.1
+    on_press:
+        app.root.transition.direction = 'right'
+        app.root.current = 'home'
+
 <LabelTable@Label>:
     font_size: 20
     size_hint_y: 0.001
@@ -37,6 +45,10 @@
         name: 'home'
     PesquisarWindow:
         name: 'pesquisar_window'
+    MostrarWindow:
+        name: 'mostrar_window'
+    FaltosasWindow:
+        name: 'faltosas_window'
 <AppWindow>:
     canvas.before:
         Color:
@@ -72,14 +84,19 @@
                 font_size: 20
                 size_hint_x: 0.45
                 size_hint_y: 0.07
-                
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'faltosas_window'
 
             Btn:
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
                 size_hint_x: 0.45
                 text: "Mostrar Estoque"
                 font_size: 20
-                size_hint_y: 0.07 
+                size_hint_y: 0.07
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'mostrar_window' 
 
         Image:
             pos_hint: {'center_x': 0.92,'center_y': 0.0}
@@ -88,7 +105,50 @@
         Label:
             size_hint_y:0.01
 
+<FaltosasWindow>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            size_hint_y: 0.2
+            text: 'Escolha o grau de importância:'
+            font_size: 40
+            color: 0,0,0,1
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Alto"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Médio"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Médio Baixo"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Baixo"
+            font_size: 20
+            size_hint_y: 0.07
+        Label:
+            size_hint_y: 0.05
+        BtnVoltar:
+
 <PesquisarWindow>:
+
     BoxLayout:
         orientation: 'vertical'
         canvas.before:
@@ -398,5 +458,24 @@
         
 
         BoxLayout:
+    BtnVoltar:
+        size_hint_y:0.035
+
+<MostrarWindow>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        BoxLayout:
+            size_hint_y: 0.9
+        BtnVoltar:
+            size_hint_y: 0.035
+            
+
+        
         
                             
