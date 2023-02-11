@@ -1,5 +1,46 @@
 #:import hex kivy.utils.get_color_from_hex
 
+<Tabela@BoxLayout>:
+    orientation: 'horizontal'
+    col1: 'column1'
+    col2: 'column2'
+    col3: 'column3'
+    col4: 'column4'
+    col5: 'column5'
+    col6: 'column6'
+    col7: 'column7'
+
+    Label:
+        id: label1
+        text: root.col1
+    Label:
+        id: label2
+        text: root.col2
+    Label:
+        id: label3
+        text: root.col3
+    Label:
+        id: label4
+        text: root.col4
+    Label:
+        id: label5
+        text: root.col5
+    Label:
+        id: label6
+        text: root.col6
+    Label:
+        id: label7
+        text: root.col7
+
+<RV>:
+    viewclass: 'Tabela'
+    RecycleBoxLayout:
+        default_size: None, dp(20)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
 <Btn@Button>:
     background_normal:
     background_color: hex('#000000')
@@ -471,7 +512,11 @@
                 size:self.size
                 pos:self.pos
         BoxLayout:
-            size_hint_y: 0.9
+            size_hint_y: 0.60
+            size_hint_x:0.80
+            pos_hint: {'center_x': 0.45 , 'center_y': 0.7 }
+            RV:
+
         BtnVoltar:
             size_hint_y: 0.035
             

@@ -18,8 +18,8 @@ def pesquisar():
     values = input("DIGITE O MODELO A PROCURAR A PEÇA: ")
     comando = sql + "'" + values + "'"
     cursor.execute(comando)
-    for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
-        result = result + "\n" + "MARCA: " + marca + "\n" + "MODELO: " + modelo + "\n" + "COR: " + cor + "\n" + "GRAU DE IMPORTÂNCIA: " + grau_importancia + "\n" + "QUANTIDADE: " + str(quantidade) + "\n\n"
+    for (id,marca,modelo,cor,quantidade,grau_importancia,caixa) in cursor:
+        result = result + "\n" + "MARCA: " + marca + "\n" + "MODELO: " + modelo + "\n" + "COR: " + cor + "\n" + "GRAU DE IMPORTÂNCIA: " + grau_importancia + "\n" + "QUANTIDADE: " + str(quantidade) + "CAIXA:" + str(caixa) + "\n\n"
     cursor.close()
     connection.commit()
     connection.close()
@@ -44,27 +44,27 @@ def pecas_faltosas():
             elif (op==1):
                 sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A'"
                 cursor.execute(sql)
-                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                for (id,marca,modelo,cor,quantidade,grau_importancia,caixa) in cursor:
                     lista = "Frontal" + " " + marca + " " + modelo + " " + cor
                     print(lista)
             elif (op==2):
                 sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M'"
                 cursor.execute(sql)
-                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                for (id,marca,modelo,cor,quantidade,grau_importancia,caixa) in cursor:
                     lista = "Frontal" + " " + marca + " " + modelo + " " + cor
                     print(lista)
             elif (op==3):
                 op="MB"
                 sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M' or numero_de_pecas='0' and grau_de_importancia='MB'"
                 cursor.execute(sql)
-                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                for (id,marca,modelo,cor,quantidade,grau_importancia,caixa) in cursor:
                     lista = "Frontal" + " " + marca + " " + modelo + " " + cor
                     print(lista)                   
             elif (op==4):
                 op="B"
                 sql = "select * from telas where numero_de_pecas='0' and grau_de_importancia='A' or numero_de_pecas='0' and grau_de_importancia='M' or numero_de_pecas='0' and grau_de_importancia='MB' or numero_de_pecas='0' and grau_de_importancia='B'"
                 cursor.execute(sql)
-                for (id,marca,modelo,cor,grau_importancia,quantidade) in cursor:
+                for (id,marca,modelo,cor,quantidade,grau_importancia,caixa) in cursor:
                     lista = "Frontal" + " " + marca + " " + modelo + " " + cor
                     print(lista)
             else:
