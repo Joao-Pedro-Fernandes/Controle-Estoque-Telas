@@ -1,0 +1,41 @@
+<FaltosasWindow>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            size_hint_y: 0.2
+            text: 'Escolha o grau de importância:'
+            font_size: 40
+            color: 0,0,0,1
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Alto"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Médio"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Médio Baixo"
+            font_size: 20
+            size_hint_y: 0.07
+        Btn:
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            size_hint_x: 0.45
+            text: "Grau de Importânca Baixo"
+            font_size: 20
+            size_hint_y: 0.07
+        Label:
+            size_hint_y: 0.05
+        BtnVoltar:

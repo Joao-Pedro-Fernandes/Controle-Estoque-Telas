@@ -1,0 +1,77 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<Screens>:
+    AppWindow:
+        name: 'home'
+    PesquisarWindow:
+        name: 'pesquisar_window'
+    MostrarWindow:
+        name: 'mostrar_window'
+    FaltosasWindow:
+        name: 'faltosas_window'
+<AppWindow>:
+    canvas.before:
+        Color:
+            rgba: hex('#FFD700')
+        Rectangle:
+            size:self.size
+            pos:self.pos    
+    
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            size_hint_y: 0.3
+            text: "Controle de Estoque Loja SD"
+            font_size: 50
+            color: 0 , 0 , 0 , 1
+                   
+        BoxLayout:
+            orientation:'vertical'
+            
+            Btn:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                text: "Pesquisar Modelos"
+                font_size: 20
+                size_hint_x: 0.45
+                size_hint_y: 0.07
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'pesquisar_window'
+        
+            Btn:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                text: "Peças Faltosas"
+                font_size: 20
+                size_hint_x: 0.45
+                size_hint_y: 0.07
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'faltosas_window'
+
+            Btn:
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                size_hint_x: 0.45
+                text: "Mostrar Estoque"
+                font_size: 20
+                size_hint_y: 0.07
+                on_press: 
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'mostrar_window' 
+
+        Image:
+            pos_hint: {'center_x': 0.92,'center_y': 0.0}
+            source: 'images/LogoSD.png'
+            size_hint_y: 0.165
+        Label:
+            size_hint_y:0.01
+
+
+
+
+
+
+            
+
+        
+        
+                            

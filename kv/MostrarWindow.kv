@@ -1,0 +1,22 @@
+<MostrarWindow>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        Label:
+            size_hint_y: 0.04
+            text:'Estoque'
+            font_size: 35
+            color: hex('#000000')
+        BoxLayout:
+            size_hint_y: 0.60
+            size_hint_x:0.95
+            pos_hint: {'center_x': 0.5 , 'center_y': 0.5 }
+            RV:
+
+        BtnVoltar:
+            size_hint_y: 0.025

@@ -1,0 +1,33 @@
+<PesquisarWindow>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: hex('#FFD700')
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+        BoxLayout:
+            Label:
+                pos_hint: {'center_x': 0.5,'center_y': 0.9}
+                text:'Sua pesquisa: '
+                font_size: 30
+                color: 1 , 1 , 1 , 1
+                size_hint_y: 0.07
+                size_hint_x:0.2
+            TextInput:
+                pos_hint: {'center_x': 0.5,'center_y': 0.9}
+                id: pesquisa    
+                size_hint_y: 0.13
+                size_hint_x:0.6
+                font_size: 20
+                multiline: False
+            Label:
+                size_hint_x: 0.01
+        BoxLayout:     
+
+        BoxLayout:
+    BtnVoltar:
+        size_hint_y:0.035

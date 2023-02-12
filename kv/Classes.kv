@@ -1,0 +1,101 @@
+<Tabela@BoxLayout>:
+    orientation: 'horizontal'
+    col1: 'column1'
+    col2: 'column2'
+    col3: 'column3'
+    col4: 'column4'
+    col5: 'column5'
+    col6: 'column6'
+    col7: 'column7'
+
+    LabelTable:
+    #ID
+        id: label1
+        text: root.col1
+        size_hint_x: 0.65
+    LabelTable:
+    #MARCA
+        id: label2
+        text: root.col2
+        size_hint_x: 1.9
+    LabelTable:
+    #MODELO
+        id: label3
+        text: root.col3
+        size_hint_x: 3
+    LabelTable:
+    #COR
+        id: label4
+        text: root.col4
+        size_hint_x: 1.1
+    LabelTable:
+    #QUANTIDADE
+        id: label5
+        text: root.col5
+        size_hint_x: 0.6
+    LabelTable:
+    #IMPORTÂNCIA
+        id: label6
+        text: root.col6
+        size_hint_x: 0.6
+    LabelTable:
+    #CAIXA
+        id: label7
+        text: root.col7
+        size_hint_x: 3
+
+<RV>:
+    viewclass: 'Tabela'
+    RecycleBoxLayout:
+        spacing: '10dp'
+        default_size: None, dp(20)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<Btn@Button>:
+    background_normal:
+    background_color: hex('#000000')
+
+<BtnVoltar@Button>:
+    text:'Menu'
+    size_hint_y: '0.02dp'
+    size_hint_x: 0.1
+    on_press:
+        app.root.transition.direction = 'right'
+        app.root.current = 'home'
+
+<LabelTable@Label>:
+    color: hex('#000000')
+    font_size: 25
+    size_hint_y: 1.2
+    background_color: 1, 1, 1, 1
+    background_normal: ""
+    canvas.before:
+        Color:
+            rgba: 1,1,0,1
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+        
+            
+<LabelRow@Label>:
+    font_size: 25
+    size_hint_y: '0.08dp'
+    canvas.before:
+        Color:
+            rgba: hex('#FFFFFF')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+        Color:
+            rgba: 1, 1, 0, 1
+        Line:
+            width: 0.9
+            rectangle: self.x, self.y, self.width, self.height
