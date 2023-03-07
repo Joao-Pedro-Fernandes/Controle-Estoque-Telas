@@ -54,6 +54,62 @@
         height: self.minimum_height
         orientation: 'vertical'
 
+<TabelaPesquisar@BoxLayout>:
+    orientation: 'horizontal'
+    colp1: 'columnp1'
+    colp2: 'columnp2'
+    colp3: 'columnp3'
+    colp4: 'columnp4'
+    colp5: 'columnp5'
+    colp6: 'columnp6'
+    colp7: 'columnp7'
+
+    LabelTable:
+    #ID
+        id: labelp1
+        text: root.colp1
+        size_hint_x: 0.65
+    LabelTable:
+    #MARCA
+        id: labelp2
+        text: root.colp2
+        size_hint_x: 1.9
+    LabelTable:
+    #MODELO
+        id: labelp3
+        text: root.colp3
+        size_hint_x: 3
+    LabelTable:
+    #COR
+        id: labelp4
+        text: root.colp4
+        size_hint_x: 1.1
+    LabelTable:
+    #QUANTIDADE
+        id: labelp5
+        text: root.colp5
+        size_hint_x: 0.6
+    LabelTable:
+    #IMPORTÂNCIA
+        id: labelp6
+        text: root.colp6
+        size_hint_x: 0.6
+    LabelTable:
+    #CAIXA
+        id: labelp7
+        text: root.colp7
+        size_hint_x: 3
+
+<RVPesquisar>:
+    viewclass: 'TabelaPesquisar'
+    RecycleBoxLayout:
+        spacing: '10dp'
+        default_size: None, dp(20)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
 <Btn@Button>:
     background_normal:
     background_color: hex('#000000')
