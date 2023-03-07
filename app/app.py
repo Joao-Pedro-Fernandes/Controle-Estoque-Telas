@@ -52,6 +52,38 @@ class RV(RecycleView):
                     Pecas.grau_de_importancia,
                      Pecas.caixa in cursor]
 
+class RVPesquisar(RecycleView):                 
+     def pesquisar(self,pesquisa):
+        print(pesquisa)   
+        def __init__(self, pesquisa, **kwargs):
+            pesquisa = ""
+            super(RVPesquisar, self).__init__(**kwargs)
+            self.data = [{'colp1': 'ID',
+            'colp2': 'MARCA',
+            'colp3': 'MODELO',
+            'colp4': 'COR',
+            'colp5': 'QTD.',
+            'colp6': 'IMP.',
+                'colp7': 'CAIXA',}]
+            conexao = connect_db() 
+            cursor = conexao.cursor()
+            cursor.execute("Select * from telas where modelo='"+pesquisa+"'")
+            self.data = self.data + [{'col1': str(Pecas.id),
+            'col2': str(Pecas.marca),
+            'col3': str(Pecas.modelo),
+            'col4': str(Pecas.cor),
+                'col5': str(Pecas.quantidade),
+                'col6': str(Pecas.grau_de_importancia),
+                'col7': str(Pecas.caixa)}
+                for Pecas.id,
+                    Pecas.marca,
+                    Pecas.modelo,
+                    Pecas.cor,
+                    Pecas.quantidade,
+                        Pecas.grau_de_importancia,
+                        Pecas.caixa in cursor]
+        
+
 class MostrarWindow(Screen):
     pass
 
@@ -60,11 +92,8 @@ class FaltosasWindow(Screen):
 
 class Screens(ScreenManager):
     def pesquisar(self,pesquisa):
-        conexao = connect_db()
-        cursor = conexao.cursor()
-        cursor.execute("SELECT * FROM telas WHERE modelo='" + str(pesquisa) + "'")
-        for Pecas.id, Pecas.marca, Pecas.modelo, Pecas.cor, Pecas.quantidade, Pecas.grau_de_importancia, Pecas.caixa in cursor:
-            print(Pecas.id, Pecas.marca, Pecas.modelo, Pecas.cor, Pecas.quantidade, Pecas.grau_de_importancia, Pecas.caixa)
+        RVPesquisar.pesquisar(self,pesquisa)
+        
 
 class Screens3(App):
     def build(self):
