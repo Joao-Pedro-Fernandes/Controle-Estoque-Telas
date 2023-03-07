@@ -59,7 +59,12 @@ class FaltosasWindow(Screen):
     pass
 
 class Screens(ScreenManager):
-    pass
+    def pesquisar(self,pesquisa):
+        conexao = connect_db()
+        cursor = conexao.cursor()
+        cursor.execute("SELECT * FROM telas WHERE modelo='" + str(pesquisa) + "'")
+        for Pecas.id, Pecas.marca, Pecas.modelo, Pecas.cor, Pecas.quantidade, Pecas.grau_de_importancia, Pecas.caixa in cursor:
+            print(Pecas.id, Pecas.marca, Pecas.modelo, Pecas.cor, Pecas.quantidade, Pecas.grau_de_importancia, Pecas.caixa)
 
 class Screens3(App):
     def build(self):

@@ -16,15 +16,22 @@
                 font_size: 30
                 color: 1 , 1 , 1 , 1
                 size_hint_y: 0.07
-                size_hint_x:0.2
+                size_hint_x:0.02
             TextInput:
                 pos_hint: {'center_x': 0.5,'center_y': 0.9}
-                id: pesquisa    
+                id: pesquisa          
                 size_hint_y: 0.13
-                size_hint_x:0.6
+                size_hint_x:0.09
                 font_size: 20
                 multiline: False
-            Label:
+            Button:
+                pos_hint: {'center_x': 0.5,'center_y': 0.9}
+                size_hint_y: 0.13
+                size_hint_x:0.1
+                id: pesquisar_btn
+                text:'Pesquisar'
+                on_release: 
+                    app.root.pesquisar(pesquisa.text)
                 size_hint_x: 0.01
         BoxLayout:     
 
